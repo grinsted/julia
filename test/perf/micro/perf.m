@@ -91,7 +91,7 @@ end
 
 function n = parseintperf(t)
     for i = 1:t
-        n = randi([0,2^32-1],1,'uint32');
+        n = uint32(rand*(2^32)-.5); %alternatively: floor(rand*(2^32))
         s = sprintf('%08x',n);
         m = sscanf(s,'%x');
         assert(m == n);
